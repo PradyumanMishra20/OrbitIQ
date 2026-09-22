@@ -226,8 +226,7 @@ function useOrbitInteractions() {
       selectShot('q', 'Query');
     }
 
-    const platforms = { windows: { name: 'Windows', description: 'Windows 10 / 11', architecture: '64-bit' }, macos: { name: 'macOS', description: 'Apple Silicon + Intel' }, linux: { name: 'Linux', description: 'AppImage / .deb / .rpm' }, android: { name: 'Android', description: 'APK' } };
-    const platformGrid = document.getElementById('platformGrid');
+    const platformGrid = null;
     const selectPlatform = (id) => { const platform = platforms[id]; if (!platform || !platformGrid) return; platformGrid.querySelectorAll('.platform-card').forEach((card) => { const selected = card.dataset.platform === id; card.classList.toggle('selected', selected); card.setAttribute('aria-pressed', String(selected)); }); document.getElementById('platformLabel').textContent = platform.name; document.getElementById('platformTitle').textContent = `Orbit IQ for ${platform.name}`; document.getElementById('platformDetails').textContent = platform.description + (platform.architecture ? ` · ${platform.architecture}` : ''); };
     platformGrid?.querySelectorAll('.platform-card').forEach((card) => { add(card, 'click', () => selectPlatform(card.dataset.platform)); add(card, 'keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectPlatform(card.dataset.platform); } }); });
     const goToDownload = () => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
@@ -253,7 +252,7 @@ function useOrbitInteractions() {
       const q = (sel) => card.querySelector(sel);
       const nameEl = q('.member-name'), roleEl = q('.member-role'), bioEl = q('.member-bio');
       const imgEl = q('.member-photo img'), initialsEl = q('.ph'), focusEl = q('.member-focus');
-      const ghEl = q('.member-links a[href^="https://github.com"]'), mailEl = q('.member-links a[href^="mailto:"]');
+      const ghEl = q('.member-links a[href^="https://github.com"]'), linkedinEl = q('.member-link--linkedin'), mailEl = q('.member-links a[href^="mailto:"]');
       const set = (id, value) => { const el = document.getElementById(id); if (el && value) el.textContent = value; };
       const name = nameEl?.textContent || 'Team Member';
       set('teamModalTitle', name); set('teamModalRole', roleEl?.textContent); set('teamModalBio', bioEl?.textContent);
@@ -262,9 +261,13 @@ function useOrbitInteractions() {
       if (initials && initialsEl) initials.textContent = initialsEl.textContent;
       const focusBox = document.getElementById('teamModalFocus');
       if (focusBox) { focusBox.innerHTML = ''; focusEl?.querySelectorAll('span').forEach((s) => { const tag = document.createElement('span'); tag.textContent = s.textContent; focusBox.appendChild(tag); }); }
-      const github = document.getElementById('teamModalGithub'), email = document.getElementById('teamModalEmail');
-      if (github && ghEl) github.setAttribute('href', ghEl.getAttribute('href'));
-      if (email && mailEl) email.setAttribute('href', mailEl.getAttribute('href'));
+      const github = document.getElementById('teamModalGithub'), linkedin = document.getElementById('teamModalLinkedin'), email = document.getElementById('teamModalEmail');
+      if (github && ghEl) { github.setAttribute('href', ghEl.getAttribute('href')); github.setAttribute('aria-label', `Open ${name}'s GitHub`); github.hidden = false; }
+      if (linkedin) {
+        if (linkedinEl) { linkedin.setAttribute('href', linkedinEl.getAttribute('href')); linkedin.setAttribute('aria-label', `Open ${name}'s LinkedIn`); linkedin.hidden = false; }
+        else { linkedin.hidden = true; linkedin.removeAttribute('href'); }
+      }
+      if (email && mailEl) { email.setAttribute('href', mailEl.getAttribute('href')); email.setAttribute('aria-label', `Email ${name}`); email.hidden = false; }
       lastFocus = document.activeElement;
       modal.hidden = false;
       requestAnimationFrame(() => modal.classList.add('open'));

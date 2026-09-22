@@ -327,6 +327,7 @@ body.oi-obs .oc-label{opacity:1}
 .member-photo{position:relative;width:clamp(88px,9vw,118px);height:clamp(88px,9vw,118px);border-radius:50%;overflow:hidden;flex-shrink:0;margin:0 auto 20px;border:1px solid rgba(160,190,218,.3);box-shadow:0 0 0 5px rgba(67,227,246,.09),0 12px 28px -14px rgba(0,0,0,.85)}
 .member-photo img{width:100%;height:100%;object-fit:cover;transition:opacity .45s}
 .member-photo img.err{opacity:0}
+.member-photo img:not(.err) + .ph{display:none}
 .member-photo .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:clamp(24px,2.6vw,32px);letter-spacing:.02em;color:var(--cyan);background:radial-gradient(120% 120% at 30% 25%,rgba(24,40,66,.92),rgba(7,11,19,.95));text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .member-photo .ph::after{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(150deg,rgba(255,255,255,.09),transparent 40%,transparent 78%,rgba(67,227,246,.12))}
 .member-name{font-family:var(--fd);font-size:clamp(17px,2vw,23px);font-weight:800;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);text-align:center}
@@ -358,7 +359,9 @@ body.oi-obs .oc-label{opacity:1}
 @media (max-width:640px){.team-cards{grid-template-columns:1fr}}
 
 /* ===== FINAL CTA ===== */
+.sec#team{padding-bottom:clamp(52px,6vw,76px)}
 .final{position:relative;text-align:center;overflow:hidden;padding:clamp(80px,11vw,140px) 0}
+.final.download-sec{padding-top:clamp(56px,7vw,88px)}
 .final .orb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,90vw);aspect-ratio:1;opacity:.55;pointer-events:none}
 .final h2{font-size:clamp(40px,8vw,104px);font-weight:800;line-height:.9;letter-spacing:-.02em;text-transform:uppercase;font-family:var(--fd)}
 .final h2 .out{color:transparent;-webkit-text-stroke:1.5px rgba(160,190,215,.55)}
@@ -377,17 +380,15 @@ body.oi-obs .oc-label{opacity:1}
 .download-note{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .download-note::before{content:'';width:6px;height:6px;border:1px solid var(--cyan);border-radius:50%;box-shadow:0 0 10px rgba(67,227,246,.6)}
 .platform-shell{position:relative;z-index:1;max-width:940px;margin:46px auto 0;border:1px solid var(--line-2);border-radius:14px;background:var(--glass);box-shadow:var(--glow);overflow:hidden}
-.platform-grid{display:grid;grid-template-columns:repeat(2,1fr)}
-.platform-card{position:relative;min-height:178px;padding:26px 28px;text-align:left;color:var(--ink);background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer;transition:background .28s var(--ease),box-shadow .28s,transform .28s}
+.platform-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.platform-card{position:relative;display:flex;flex-direction:column;min-height:258px;padding:28px;text-align:left;color:var(--ink);background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .28s var(--ease),box-shadow .28s,transform .28s}
 .platform-card:nth-child(2n){border-right:0}.platform-card:nth-last-child(-n+2){border-bottom:0}
 .platform-card:hover{background:rgba(67,227,246,.07);box-shadow:inset 3px 0 var(--cyan);transform:translateY(-2px)}
-.platform-card.selected{background:rgba(67,227,246,.1);box-shadow:inset 3px 0 var(--cyan),inset 0 0 42px rgba(67,227,246,.05)}
 .platform-top{display:flex;align-items:center;gap:15px}.platform-icon{width:38px;height:38px;display:grid;place-items:center;color:var(--cyan);border:1px solid rgba(67,227,246,.32);border-radius:7px;background:rgba(5,8,14,.35)}
 .platform-icon svg{width:21px;height:21px;fill:currentColor}.platform-icon .apple{fill:none;stroke:currentColor;stroke-width:1.8}.platform-icon .linux{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.platform-name{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:.01em;text-transform:uppercase}.platform-spec{margin:17px 0 0 53px;font-size:13px;line-height:1.7;color:var(--muted)}
-.platform-status{display:inline-flex;margin:14px 0 0 53px;padding:5px 9px;border:1px solid rgba(160,190,218,.32);border-radius:2px;font-family:var(--fm);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.platform-detail{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:24px 28px;border-top:1px solid var(--line);background:rgba(5,8,14,.42)}
-.platform-detail .mono-label{color:var(--cyan)}.platform-detail h3{font-family:var(--fd);font-size:clamp(22px,3vw,30px);line-height:1.05;text-transform:uppercase;margin-top:4px}.platform-detail p{color:var(--muted);font-size:13px;margin-top:7px}.platform-detail .platform-status{margin:0;padding:11px 16px;color:var(--muted);white-space:nowrap}
+.platform-name{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:.01em;text-transform:uppercase}.platform-architecture{margin-top:28px;font-family:var(--fd);font-size:clamp(21px,2.4vw,27px);font-weight:700;line-height:1.08;letter-spacing:-.01em;text-transform:uppercase}.platform-spec{margin-top:9px;font-size:13px;line-height:1.7;color:var(--muted)}
+.platform-download{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:auto;padding:12px 16px;border:1px solid rgba(67,227,246,.34);border-radius:7px;background:rgba(67,227,246,.08);font-family:var(--fm);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);cursor:not-allowed}.platform-download:disabled{opacity:1}.platform-download .download-arrow{font-size:15px;line-height:0;transition:transform .25s var(--ease)}.platform-card:hover .platform-download .download-arrow{transform:translateY(2px)}.platform-download small{font-size:7px;letter-spacing:.1em;color:var(--faint)}
+.platform-detail{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 28px;border-top:1px solid var(--line);background:rgba(5,8,14,.42)}.platform-detail .mono-label{color:var(--cyan)}.platform-detail h3{font-family:var(--fd);font-size:clamp(20px,2.7vw,27px);line-height:1.05;text-transform:uppercase;margin-top:4px}.platform-detail p{color:var(--muted);font-size:13px;margin-top:7px}.platform-summary-status{display:inline-flex;padding:10px 14px;border:1px solid rgba(160,190,218,.3);border-radius:5px;font-family:var(--fm);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
 
 /* ===== FOOTER ===== */
 footer{position:relative;padding:clamp(56px,7vw,96px) 0 30px;border-top:1px solid var(--line);overflow:hidden}
@@ -452,31 +453,55 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
 @media (max-width:560px){.modal{padding:14px}.modal-head{padding:16px 18px 12px}.modal-body{padding:16px 18px 20px}}
 @media (prefers-reduced-motion:reduce){.modal,.modal-panel{transition:none}}
 
-/* ===== TEAM MEMBER DIALOG ===== */
+/* ===== TEAM MEMBER PROFILE CARD (opens from "View profile" on .team-card) ===== */
 .team-card{cursor:pointer}
 .team-card:focus-visible{outline:2px solid rgba(67,227,246,.7);outline-offset:4px}
 .team-card .member-view{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 14px;border:1px solid rgba(67,227,246,.35);border-radius:999px;font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,227,246,.07);opacity:0;transform:translateY(5px);transition:opacity .3s var(--ease),transform .3s var(--ease),background .3s,border-color .3s}
 .team-card .member-view::after{content:'\2192';margin-left:2px}
 .team-card:hover .member-view,.team-card:focus-visible .member-view{opacity:1;transform:none}
-.team-dialog-panel{width:min(760px,100%)}
-.team-dialog-head{border-bottom:1px dashed rgba(67,227,246,.28)}
-.team-dialog-head h3{font-size:clamp(24px,3.4vw,32px);letter-spacing:-.01em}
-.team-dialog-body{padding:26px 28px 30px}
-.team-dialog-top{display:grid;grid-template-columns:132px minmax(0,1fr);gap:28px;align-items:start}
-.team-dialog-photo{position:relative;width:132px;height:132px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid rgba(160,190,218,.3);box-shadow:0 0 0 6px rgba(67,227,246,.09),0 16px 34px -14px rgba(0,0,0,.85)}
+.team-dialog{background:radial-gradient(90% 68% at 50% 2%,rgba(67,227,246,.06),transparent 62%),rgba(4,7,12,.76)}
+.team-dialog-panel{position:relative;width:min(720px,100%);max-height:min(86vh,780px);max-height:min(86dvh,780px);border:1px solid rgba(160,190,218,.2);border-radius:20px;background:linear-gradient(158deg,rgba(17,27,45,.97),rgba(7,11,19,.99));box-shadow:0 42px 96px -36px rgba(0,0,0,.95),0 0 0 1px rgba(67,227,246,.07),inset 0 1px 0 rgba(255,255,255,.07);overflow:hidden;transform:translateY(10px) scale(.985)}
+.team-dialog-panel::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(138deg,rgba(67,227,246,.16),transparent 32%,transparent 68%,rgba(27,127,219,.14));opacity:.5;pointer-events:none}
+.team-dialog-panel::after{content:'';position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);pointer-events:none}
+.team-dialog-bar{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px 0}
+.team-dialog-brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan)}
+.team-dialog-brand-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px rgba(67,227,246,.85);animation:brandPulse 3.6s var(--ease) infinite}
+.team-dialog-bar .modal-close{width:30px;height:30px;border-radius:9px;background:rgba(10,17,29,.55)}
+.team-dialog-body{position:relative;z-index:1;padding:20px clamp(20px,3vw,32px) clamp(22px,3vw,30px);opacity:0;transform:translateY(6px);transition:opacity .26s var(--ease) .05s,transform .26s var(--ease) .05s}
+.modal.open .team-dialog-body{opacity:1;transform:none}
+.team-dialog-head{display:flex;flex-direction:column;align-items:center;text-align:center}
+.team-dialog-photo{position:relative;width:clamp(92px,13vw,116px);aspect-ratio:1;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid rgba(160,190,218,.3);box-shadow:0 0 0 5px rgba(67,227,246,.08),0 0 28px -8px rgba(67,227,246,.34),0 18px 38px -16px rgba(0,0,0,.9);transition:transform .35s var(--ease),box-shadow .35s}
+.team-dialog-panel:hover .team-dialog-photo{transform:scale(1.02);box-shadow:0 0 0 5px rgba(67,227,246,.12),0 0 32px -6px rgba(67,227,246,.48),0 18px 38px -16px rgba(0,0,0,.9)}
 .team-dialog-photo img{width:100%;height:100%;object-fit:cover;transition:opacity .45s}
 .team-dialog-photo img.err{opacity:0}
-.team-dialog-photo .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:40px;letter-spacing:.02em;color:var(--cyan);background:radial-gradient(120% 120% at 30% 25%,rgba(24,40,66,.92),rgba(7,11,19,.95))}
+.team-dialog-photo img:not(.err) + .ph{display:none}
+.team-dialog-photo .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:clamp(28px,4vw,36px);letter-spacing:.02em;color:var(--cyan);background:radial-gradient(120% 120% at 30% 25%,rgba(24,40,66,.92),rgba(7,11,19,.95))}
 .team-dialog-photo .ph::after{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(150deg,rgba(255,255,255,.09),transparent 40%,transparent 78%,rgba(67,227,246,.12))}
-.team-dialog-info p{font-size:14px;line-height:1.8;color:var(--muted)}
-.team-dialog-focus{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.team-dialog-focus span{font-family:var(--fm);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border:1px solid rgba(160,190,218,.24);border-radius:999px;color:var(--faint)}
-.team-dialog-focus span::before{content:'\25C8';color:var(--cyan);margin-right:5px;font-size:7px}
-.team-dialog-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:16px;border-top:1px solid rgba(160,190,218,.14)}
-.team-dialog-links a{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border:1px solid rgba(160,190,218,.24);border-radius:999px;color:var(--muted);background:rgba(10,17,29,.4);transition:color .25s,border-color .25s,transform .25s var(--ease),box-shadow .3s}
-.team-dialog-links a:hover{color:var(--cyan);border-color:rgba(67,227,246,.5);transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(67,227,246,.35)}
-.team-dialog-links a .ico{width:12px;height:12px;display:grid;place-items:center;line-height:1;border:1px solid currentColor;border-radius:4px;font-family:var(--fm);font-size:7px}
-@media (max-width:560px){.team-dialog-top{grid-template-columns:1fr;justify-items:center;text-align:center}.team-dialog-info p{text-align:center}.team-dialog-focus{justify-content:center}.team-dialog-photo{width:108px;height:108px}.team-dialog-links{justify-content:center}}
+.team-dialog-name{font-family:var(--fd);font-weight:800;font-size:clamp(22px,3.6vw,30px);line-height:1.06;letter-spacing:-.01em;text-transform:uppercase;color:var(--ink);margin-top:20px}
+.team-dialog-role{display:inline-flex;align-items:center;font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-top:12px;padding:6px 12px;border:1px solid rgba(67,227,246,.3);border-radius:999px;background:rgba(67,227,246,.07)}
+.team-dialog-rule{display:flex;align-items:center;gap:12px;margin:24px 0}
+.team-dialog-rule::before,.team-dialog-rule::after{content:'';flex:1;height:1px}
+.team-dialog-rule::before{background:linear-gradient(90deg,transparent,rgba(160,190,218,.28))}
+.team-dialog-rule::after{background:linear-gradient(90deg,rgba(160,190,218,.28),transparent)}
+.team-dialog-rule span{font-size:7px;line-height:1;color:var(--cyan);opacity:.85}
+.team-dialog-rule span::before{content:'\25C8'}
+.team-dialog-section+.team-dialog-section{margin-top:22px}
+.team-dialog-body .team-dialog-label{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.team-dialog-body .team-dialog-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(160,190,218,.18),transparent)}
+.team-dialog-body .team-dialog-bio{margin:0;font-size:14px;line-height:1.85;color:var(--muted)}
+.team-dialog-focus{display:flex;flex-wrap:wrap;gap:8px}
+.team-dialog-focus span{display:inline-flex;align-items:center;font-family:var(--fm);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border:1px solid rgba(160,190,218,.22);border-radius:7px;color:var(--ink);background:linear-gradient(160deg,rgba(18,30,50,.72),rgba(9,14,24,.6));transition:border-color .25s,box-shadow .3s,transform .25s var(--ease)}
+.team-dialog-focus span::before{content:'\25C8';color:var(--cyan);margin-right:7px;font-size:7px}
+.team-dialog-focus span:hover{border-color:rgba(67,227,246,.45);box-shadow:0 8px 18px -12px rgba(67,227,246,.6);transform:translateY(-1px)}
+.team-dialog-links{display:flex;gap:10px;flex-wrap:wrap}
+.team-dialog-links a{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:1 1 150px;padding:13px 18px;border:1px solid rgba(160,190,218,.22);border-radius:10px;font-family:var(--fm);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:linear-gradient(160deg,rgba(16,26,44,.7),rgba(8,13,22,.62));text-decoration:none;transition:color .25s,border-color .25s,background .3s,transform .25s var(--ease),box-shadow .3s}
+.team-dialog-links a .ico{display:grid;place-items:center;width:16px;height:16px;border:1px solid currentColor;border-radius:5px;font-size:9px;line-height:1}
+.team-dialog-links a:first-child{color:var(--cyan);border-color:rgba(67,227,246,.36);background:linear-gradient(160deg,rgba(67,227,246,.14),rgba(27,127,219,.09));box-shadow:0 14px 30px -20px rgba(67,227,246,.7)}
+.team-dialog-links a:hover{color:var(--ink);border-color:rgba(67,227,246,.6);transform:translateY(-2px);box-shadow:0 18px 34px -20px rgba(67,227,246,.75)}
+@keyframes brandPulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.team-dialog-brand-dot{animation:none}.team-dialog-body{opacity:1;transform:none;transition:none}.team-dialog-photo,.team-dialog-panel:hover .team-dialog-photo,.team-dialog-focus span,.team-dialog-links a{transition:none}.team-dialog-focus span:hover,.team-dialog-links a:hover{transform:none}}
+@media (max-width:600px){.team-dialog{padding:12px}.team-dialog-panel{border-radius:16px;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px)}.team-dialog-bar{padding:15px 16px 0}.team-dialog-body{padding:16px 18px 22px}.team-dialog-rule{margin:20px 0}.team-dialog-links a{flex:1 1 100%}}
+@media (max-width:380px){.team-dialog-focus span{font-size:8.5px;padding:6px 10px}}
 
 /* ===== animation polish ===== */
 .navbar{animation:navdrop .7s var(--ease) .08s backwards}
@@ -537,6 +562,8 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
 }
 @media (max-width:640px){
   .sec{padding:clamp(56px,10vw,84px) 0}
+  .sec#team{padding-bottom:48px}
+  .final.download-sec{padding-top:52px}
   .stage-head{flex-direction:column;align-items:flex-start;gap:14px}
   .stage-head .note{text-align:left;max-width:none}
   .brand-logo{height:48px}
@@ -569,10 +596,8 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
   .platform-card,.platform-card:nth-child(2n),.platform-card:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}
   .platform-card:last-child{border-bottom:0}
   .platform-card{min-height:0;padding:20px;display:flex;flex-direction:column;align-items:flex-start}
-  .platform-spec,.platform-status{margin-left:0}
-  .platform-status{margin-top:10px}
+  .platform-card{min-height:0;padding:24px 20px}
   .platform-detail{align-items:flex-start;flex-direction:column;gap:14px;padding:20px}
-  .platform-detail .platform-status{margin:0}
   .platform-shell{margin-top:32px;border-radius:12px}
   .foot-grid{grid-template-columns:1fr;gap:34px}
   .foot-logo{height:46px}
@@ -918,13 +943,9 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
       <div class="team-meta" aria-label="Team details"><span>Mission crew</span><span>06 members</span><span>Orbit IQ</span></div>
     </div>
     <div class="team-cards reveal" id="teamList">
-      <!-- TEAM CARDS. Make a card fully real by editing these 3 spots:
-           1) Photo: change the GitHub username inside the img src (https://github.com/USERNAME.png).
-              The member's GitHub profile photo then loads automatically. Or point src at any image URL.
-           2) GitHub link: paste the member's real GitHub profile URL into the link href below.
-           3) Email: replace the example address with the real one. The mailto link works immediately. -->
+      <!-- TEAM CARDS. Card photos reference the real assets in /public and share the existing initials fallback. -->
       <div class="team-card" style="--ti:0" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Vedant Mhatre"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/vedant-mhatre.png" alt="Vedant Mhatre" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">VM</span></div>
+        <div class="member-photo"><img src="/vedant.jpeg" alt="Vedant Mhatre" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">VM</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m0"><span class="member-name">Vedant Mhatre</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">Frontend Developer</p>
         <p class="member-intro">Frontend lead — builds the interface, interactions, and responsive layouts that make Orbit IQ feel alive across every screen.</p>
@@ -936,10 +957,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/vedant-mhatre" target="_blank" rel="noopener noreferrer" aria-label="Vedant Mhatre on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:vedant.mhatre@example.com" aria-label="Email Vedant Mhatre"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/vedantmh48-cpu" target="_blank" rel="noopener noreferrer" aria-label="Open Vedant Mhatre's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="https://www.linkedin.com/in/vedant-mhatre-4aa554423/" target="_blank" rel="noopener noreferrer" aria-label="Open Vedant Mhatre's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:vedantmh48@gmail.com" aria-label="Email Vedant Mhatre"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
       <div class="team-card" style="--ti:1" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Yogesh Tiwari"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/yogesh-tiwari.png" alt="Yogesh Tiwari" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">YT</span></div>
+        <div class="member-photo"><img src="/yogesh.jpeg" alt="Yogesh Tiwari" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">YT</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m1"><span class="member-name">Yogesh Tiwari</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">UI/UX Designer</p>
         <p class="member-intro">Designs the product experience — the visual language, user flows, and interface consistency felt in every screen of Orbit IQ.</p>
@@ -951,10 +972,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/yogesh-tiwari" target="_blank" rel="noopener noreferrer" aria-label="Yogesh Tiwari on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:yogesh.tiwari@example.com" aria-label="Email Yogesh Tiwari"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/yogesh1636" target="_blank" rel="noopener noreferrer" aria-label="Open Yogesh Tiwari's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="https://www.linkedin.com/in/yogesh-tiwari-8ab29b423" target="_blank" rel="noopener noreferrer" aria-label="Open Yogesh Tiwari's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:yogesh2808e@gmail.com" aria-label="Email Yogesh Tiwari"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
       <div class="team-card" style="--ti:2" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Anuj Gupta"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/anuj-gupta.png" alt="Anuj Gupta" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AG</span></div>
+        <div class="member-photo"><img src="/anuj.jpeg" alt="Anuj Gupta" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AG</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m2"><span class="member-name">Anuj Gupta</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">AI / Data Analysis</p>
         <p class="member-intro">Drives the AI workflows — satellite-data concepts, analytical research, and the data analysis that power Orbit IQ.</p>
@@ -966,10 +987,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/anuj-gupta" target="_blank" rel="noopener noreferrer" aria-label="Anuj Gupta on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:anuj.gupta@example.com" aria-label="Email Anuj Gupta"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/anujgupta2808" target="_blank" rel="noopener noreferrer" aria-label="Open Anuj Gupta's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="https://www.linkedin.com/in/anuj-gupta-7aaabb2b9" target="_blank" rel="noopener noreferrer" aria-label="Open Anuj Gupta's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:anujgupta26610812@gmail.com" aria-label="Email Anuj Gupta"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
       <div class="team-card" style="--ti:3" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Anisha Gupta"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/anisha-gupta.png" alt="Anisha Gupta" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AG</span></div>
+        <div class="member-photo"><img src="/anisha.jpeg" alt="Anisha Gupta" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AG</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m3"><span class="member-name">Anisha Gupta</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">Research &amp; Documentation</p>
         <p class="member-intro">Keeps the mission grounded — research, project documentation, content organization, and presentation material.</p>
@@ -981,10 +1002,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/anisha-gupta" target="_blank" rel="noopener noreferrer" aria-label="Anisha Gupta on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:anisha.gupta@example.com" aria-label="Email Anisha Gupta"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/anishagupta8108-gif" target="_blank" rel="noopener noreferrer" aria-label="Open Anisha Gupta's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="https://www.linkedin.com/in/anisha-gupta-917268367/" target="_blank" rel="noopener noreferrer" aria-label="Open Anisha Gupta's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:anishagupta8108@gmail.com" aria-label="Email Anisha Gupta"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
       <div class="team-card" style="--ti:4" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Anjali Sharma"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/anjali-sharma.png" alt="Anjali Sharma" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AS</span></div>
+        <div class="member-photo"><img src="/anjali.jpeg" alt="Anjali Sharma" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">AS</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m4"><span class="member-name">Anjali Sharma</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">Testing &amp; Presentation</p>
         <p class="member-intro">Owns quality and delivery — application testing, usability checks, and presenting Orbit IQ in demos and reviews.</p>
@@ -996,10 +1017,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/anjali-sharma" target="_blank" rel="noopener noreferrer" aria-label="Anjali Sharma on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:anjali.sharma@example.com" aria-label="Email Anjali Sharma"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/anjalivinodsharma19-ship-it" target="_blank" rel="noopener noreferrer" aria-label="Open Anjali Sharma's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="https://www.linkedin.com/in/anjali-undefined-9a743742b" target="_blank" rel="noopener noreferrer" aria-label="Open Anjali Sharma's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:anjalivinodsharma19@gmail.com" aria-label="Email Anjali Sharma"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
       <div class="team-card" style="--ti:5" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open profile dialog for Pradyuman Mishra"><div class="tc st-item">
-        <div class="member-photo"><img src="https://github.com/pradyuman-mishra.png" alt="Pradyuman Mishra" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">PM</span></div>
+        <div class="member-photo"><img src="/pradyuman.png" alt="Pradyuman Mishra" loading="lazy" draggable="false" onerror="this.classList.add('err');this.onerror=null"><span class="ph" aria-hidden="true">PM</span></div>
         <button type="button" class="member-name-btn" aria-expanded="false" aria-controls="m5"><span class="member-name">Pradyuman Mishra</span><span class="member-fold" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></span></button>
         <p class="member-role">Backend Developer</p>
         <p class="member-intro">Builds the backend — architecture, APIs, data processing, and the server-side systems that power the platform.</p>
@@ -1011,7 +1032,7 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
             </div>
           </div>
         </div>
-        <div class="member-links"><a href="https://github.com/pradyuman-mishra" target="_blank" rel="noopener noreferrer" aria-label="Pradyuman Mishra on GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a href="mailto:pradyuman.mishra@example.com" aria-label="Email Pradyuman Mishra"><span class="ico" aria-hidden="true">@</span>Email</a></div>
+        <div class="member-links"><a href="https://github.com/PradyumanMishra20" target="_blank" rel="noopener noreferrer" aria-label="Open Pradyuman Mishra's GitHub"><span class="ico" aria-hidden="true">GH</span>GitHub</a><a class="member-link--linkedin" href="http://www.linkedin.com/in/pradyuman-mishra-918902402" target="_blank" rel="noopener noreferrer" aria-label="Open Pradyuman Mishra's LinkedIn"><span class="ico" aria-hidden="true">in</span>LinkedIn</a><a href="mailto:pradyuman212@gmail.com" aria-label="Email Pradyuman Mishra"><span class="ico" aria-hidden="true">@</span>Email</a></div>
       </div><span class="member-view" aria-hidden="true">View profile</span></div>
     </div>
     <div class="team-note">Orbit IQ // Smart India Hackathon 2026</div>
@@ -1035,29 +1056,33 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
     <div class="download-intro reveal">
       <div class="pre">Orbit IQ platforms</div>
       <h2>Download<br><span class="out">Orbit IQ.</span></h2>
-      <p class="sub">Choose your platform. Orbit IQ is being prepared for desktop and mobile.</p>
-      <p class="download-note">Coming soon across platforms</p>
+      <p class="sub">Choose your desktop platform. Orbit IQ is being prepared for Windows and macOS.</p>
+      <p class="download-note">Coming soon for desktop</p>
     </div>
-    <div class="platform-shell reveal-s" aria-label="Choose an Orbit IQ platform">
+    <div class="platform-shell reveal-s" aria-label="Orbit IQ desktop download builds">
       <div class="platform-grid" id="platformGrid">
-        <div class="platform-card st-item selected" role="button" tabindex="0" aria-pressed="true" data-platform="windows">
+        <article class="platform-card st-item" data-platform="windows-x64">
           <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 3.5 10.2 2v9H2V3.5Zm10.1-1.7L22 0v11h-9.9V1.8ZM2 13h8.2v9L2 20.5V13Zm10.1 0H22v11l-9.9-1.8V13Z"/></svg></span><span class="platform-name">Windows</span></div>
-          <p class="platform-spec">Windows 10 / 11<br>64-bit</p><span class="platform-status">Coming Soon</span>
-        </div>
-        <div class="platform-card st-item" role="button" tabindex="0" aria-pressed="false" data-platform="macos">
+          <h3 class="platform-architecture">Windows x64</h3><p class="platform-spec">Intel / AMD</p>
+          <button class="platform-download" type="button" disabled aria-disabled="true"><span class="download-arrow" aria-hidden="true">&#8595;</span>Download <small>Coming soon</small></button>
+        </article>
+        <article class="platform-card st-item" data-platform="windows-arm64">
+          <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 3.5 10.2 2v9H2V3.5Zm10.1-1.7L22 0v11h-9.9V1.8ZM2 13h8.2v9L2 20.5V13Zm10.1 0H22v11l-9.9-1.8V13Z"/></svg></span><span class="platform-name">Windows</span></div>
+          <h3 class="platform-architecture">Windows ARM64</h3><p class="platform-spec">ARM-based Windows PCs</p>
+          <button class="platform-download" type="button" disabled aria-disabled="true"><span class="download-arrow" aria-hidden="true">&#8595;</span>Download <small>Coming soon</small></button>
+        </article>
+        <article class="platform-card st-item" data-platform="macos-arm64">
           <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg class="apple" viewBox="0 0 24 24"><path d="M16.7 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.9-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.8 3.1-.8 1.4 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.5-3.5ZM14.3 5.5c.6-.8 1-1.8.9-2.8-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-.9 2.8 1 .1 2-.5 2.7-1.4Z"/></svg></span><span class="platform-name">macOS</span></div>
-          <p class="platform-spec">Apple Silicon + Intel</p><span class="platform-status">Coming Soon</span>
-        </div>
-        <div class="platform-card st-item" role="button" tabindex="0" aria-pressed="false" data-platform="linux">
-          <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg class="linux" viewBox="0 0 24 24"><circle cx="12" cy="6.8" r="3.2"/><path d="M8.8 10c-1.5 1.4-2.2 3.6-2 6l-2 2.1c-.6.7-.1 1.8.8 1.8h13c.9 0 1.4-1.1.8-1.8l-2-2.1c.2-2.4-.5-4.6-2-6M9.4 14.1h.1m5 0h.1M9 20.5 7.2 22m7.8-1.5 1.8 1.5"/></svg></span><span class="platform-name">Linux</span></div>
-          <p class="platform-spec">AppImage / .deb / .rpm</p><span class="platform-status">Coming Soon</span>
-        </div>
-        <div class="platform-card st-item" role="button" tabindex="0" aria-pressed="false" data-platform="android">
-          <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 9h10v9.5a1.5 1.5 0 0 1-1.5 1.5H15v2h-2v-2h-2v2H9v-2h-.5A1.5 1.5 0 0 1 7 18.5V9Zm-2 1h1v8H5v-8Zm13 0h1v8h-1v-8ZM8.3 7.7a4 4 0 0 1 7.4 0H8.3ZM9.5 5.3 8.4 3.5l.7-.4 1.1 1.8a4.5 4.5 0 0 1 3.6 0l1.1-1.8.7.4-1.1 1.8H9.5Zm1.3 6.1a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4Zm2.4 0a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4Z"/></svg></span><span class="platform-name">Android</span></div>
-          <p class="platform-spec">APK</p><span class="platform-status">Coming Soon</span>
-        </div>
+          <h3 class="platform-architecture">Apple Silicon</h3><p class="platform-spec">ARM64</p>
+          <button class="platform-download" type="button" disabled aria-disabled="true"><span class="download-arrow" aria-hidden="true">&#8595;</span>Download <small>Coming soon</small></button>
+        </article>
+        <article class="platform-card st-item" data-platform="macos-x64">
+          <div class="platform-top"><span class="platform-icon" aria-hidden="true"><svg class="apple" viewBox="0 0 24 24"><path d="M16.7 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.9-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.8 3.1-.8 1.4 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.5-3.5ZM14.3 5.5c.6-.8 1-1.8.9-2.8-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-.9 2.8 1 .1 2-.5 2.7-1.4Z"/></svg></span><span class="platform-name">macOS</span></div>
+          <h3 class="platform-architecture">Intel</h3><p class="platform-spec">x64</p>
+          <button class="platform-download" type="button" disabled aria-disabled="true"><span class="download-arrow" aria-hidden="true">&#8595;</span>Download <small>Coming soon</small></button>
+        </article>
       </div>
-      <div class="platform-detail" aria-live="polite"><div><span class="mono-label" id="platformLabel">Windows</span><h3 id="platformTitle">Orbit IQ for Windows</h3><p id="platformDetails">Windows 10 / 11 · 64-bit</p></div><span class="platform-status">Coming Soon</span></div>
+      <div class="platform-detail"><div><span class="mono-label">Orbit IQ desktop builds</span><h3>Choose your architecture.</h3><p>Windows and macOS installers are being prepared for all four supported configurations.</p></div><span class="platform-summary-status">Coming soon</span></div>
     </div>
   </div>
 </section>
@@ -1071,10 +1096,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
         <p class="foot-desc">Orbit IQ turns plain-language questions about the Earth into satellite intelligence — clear, visual, analyzed answers across desktop and mobile.</p>
         <div class="foot-tag">Earth observation<br>Natural language<br>Applied intelligence</div>
         <div class="foot-social">
-          <a href="#home" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 4.4 18 4.7 18 4.7c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6a11.5 11.5 0 0 0 7.9-10.9C23.5 5.6 18.4.5 12 .5Z"/></svg></a>
-          <a href="#home" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1 2h6.5l4.4 5.9L18.9 2Zm-1.1 18h1.7L7.1 3.7H5.3L17.8 20Z"/></svg></a>
-          <a href="#home" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
-          <a href="mailto:hello@orbitiq.dev" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5L4 6h16Zm0 12H4V8l8 5 8-5v10Z"/></svg></a>
+          <a href="https://github.com/vedantmh48-cpu/OrbitIQ" target="_blank" rel="noopener noreferrer" aria-label="Open Orbit IQ on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 4.4 18 4.7 18 4.7c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6a11.5 11.5 0 0 0 7.9-10.9C23.5 5.6 18.4.5 12 .5Z"/></svg></a>
+          <a href="https://x.com/Pradyuman2610" target="_blank" rel="noopener noreferrer" aria-label="Open Orbit IQ on X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1 2h6.5l4.4 5.9L18.9 2Zm-1.1 18h1.7L7.1 3.7H5.3L17.8 20Z"/></svg></a>
+          <a href="https://www.instagram.com/v1dant_14" target="_blank" rel="noopener noreferrer" aria-label="Open Orbit IQ on Instagram"><svg viewBox="0 0 24 24" style="fill:none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="mailto:orbitIQ2606@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5L4 6h16Zm0 12H4V8l8 5 8-5v10Z"/></svg></a>
         </div>
       </div>
       <nav class="foot-col" aria-label="Product">
@@ -1094,13 +1119,13 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
         <h5>Legal</h5>
         <button type="button" data-modal-open="privacyModal">Privacy Policy</button>
         <button type="button" data-modal-open="termsModal">Terms &amp; Conditions</button>
-        <a href="mailto:hello@orbitiq.dev">Contact legal</a>
+        <a href="mailto:orbitIQ2606@gmail.com">Contact legal</a>
       </nav>
       <div class="foot-contact">
         <h5>Get in touch</h5>
         <p>Built for the Smart India Hackathon 2026 as an open, transparent satellite-intelligence project.</p>
         <div class="mi"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span>Mission control<br><b>19.076&deg;N 72.878&deg;E</b></span></div>
-        <div class="mi"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5L4 6h16Zm0 12H4V8l8 5 8-5v10Z"/></svg><span>Email us<br><a href="mailto:hello@orbitiq.dev">hello@orbitiq.dev</a></span></div>
+        <div class="mi"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5L4 6h16Zm0 12H4V8l8 5 8-5v10Z"/></svg><span>Email us<br><a href="mailto:orbitIQ2606@gmail.com">orbitIQ2606@gmail.com</a></span></div>
       </div>
     </div>
     <div class="foot-bottom reveal">
@@ -1154,7 +1179,7 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
       <h4>Changes</h4>
       <p>If this policy changes as the project evolves, the updated version will be published here.</p>
       <h4>Contact</h4>
-      <p>Questions about this policy can be sent to <a href="mailto:hello@orbitiq.dev">hello@orbitiq.dev</a>, or raised directly with the team through the Smart India Hackathon project portal.</p>
+      <p>Questions about this policy can be sent to <a href="mailto:orbitIQ2606@gmail.com">orbitIQ2606@gmail.com</a>, or raised directly with the team through the Smart India Hackathon project portal.</p>
     </div>
   </div>
 </div>
@@ -1186,39 +1211,44 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
       <h4>Acceptable use</h4>
       <p>Please use Orbit IQ only for lawful purposes and do not attempt to disrupt the services or data sources it relies on.</p>
       <h4>Contact</h4>
-      <p>Questions about these terms can be sent to <a href="mailto:hello@orbitiq.dev">hello@orbitiq.dev</a>, or directed to the team through the Smart India Hackathon project portal.</p>
+      <p>Questions about these terms can be sent to <a href="mailto:orbitIQ2606@gmail.com">orbitIQ2606@gmail.com</a>, or directed to the team through the Smart India Hackathon project portal.</p>
       <h4>Last updated</h4>
       <p>1 March 2026 &#8212; version 1.0 of these terms.</p>
     </div>
   </div>
 </div>
-<!-- ===== TEAM MEMBER DIALOG ===== -->
-<!-- Populated by JS from the clicked .team-card: name, role, bio, photo, focus tags, GitHub + email links. -->
+<!-- ===== TEAM MEMBER PROFILE CARD ===== -->
+<!-- Populated by JS from the clicked .team-card: name, role, bio, photo, skills, and social links. -->
 <div class="modal team-dialog" id="teamModal" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle" hidden>
   <div class="modal-panel team-dialog-panel">
-    <div class="modal-head team-dialog-head">
-      <div>
-        <div class="modal-eyebrow">Orbit IQ &#183; Mission Crew</div>
-        <h3 id="teamModalTitle">Team Member</h3>
-        <p class="modal-meta" id="teamModalRole">Role</p>
-      </div>
+    <div class="team-dialog-bar">
+      <span class="team-dialog-brand"><span class="team-dialog-brand-dot" aria-hidden="true"></span>Orbit IQ &#183; Mission Crew</span>
       <button type="button" class="modal-close" aria-label="Close team member profile">
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg>
       </button>
     </div>
     <div class="modal-body team-dialog-body">
-      <div class="team-dialog-top">
+      <div class="team-dialog-head">
         <div class="team-dialog-photo">
           <img id="teamModalPhoto" src="logo.png" alt="" draggable="false"><span class="ph" id="teamModalInitials" aria-hidden="true">--</span>
         </div>
-        <div class="team-dialog-info">
-          <p id="teamModalBio"></p>
-          <div class="team-dialog-focus" id="teamModalFocus" aria-label="Focus areas"></div>
-        </div>
+        <h3 class="team-dialog-name" id="teamModalTitle">Team Member</h3>
+        <p class="team-dialog-role" id="teamModalRole">Role</p>
       </div>
+      <div class="team-dialog-rule" aria-hidden="true"><span></span></div>
+      <div class="team-dialog-section">
+        <h4 class="team-dialog-label">About</h4>
+        <p class="team-dialog-bio" id="teamModalBio"></p>
+      </div>
+      <div class="team-dialog-section">
+        <h4 class="team-dialog-label">Skills</h4>
+        <div class="team-dialog-focus" id="teamModalFocus" aria-label="Focus areas"></div>
+      </div>
+      <div class="team-dialog-rule" aria-hidden="true"><span></span></div>
       <div class="team-dialog-links">
-        <a id="teamModalGithub" href="#" target="_blank" rel="noopener noreferrer"><span class="ico" aria-hidden="true">GH</span>GitHub</a>
-        <a id="teamModalEmail" href="mailto:"><span class="ico" aria-hidden="true">@</span>Email</a>
+        <a id="teamModalGithub" href="#" target="_blank" rel="noopener noreferrer"><span class="ico" aria-hidden="true">&#8599;</span>GitHub</a>
+        <a id="teamModalLinkedin" href="#" target="_blank" rel="noopener noreferrer"><span class="ico" aria-hidden="true">in</span>LinkedIn</a>
+        <a id="teamModalEmail" href="mailto:"><span class="ico" aria-hidden="true">&#9993;</span>Email</a>
       </div>
     </div>
   </div>
@@ -1483,10 +1513,8 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
 
   /* ---------- multi-platform download foundation (links added later) ---------- */
   var platforms = {
-    windows:{name:'Windows', description:'Windows 10 / 11', architecture:'64-bit', status:'coming-soon', downloadUrl:null},
-    macos:{name:'macOS', description:'Apple Silicon + Intel', architecture:'', status:'coming-soon', downloadUrl:null},
-    linux:{name:'Linux', description:'AppImage / .deb / .rpm', architecture:'', status:'coming-soon', downloadUrl:null},
-    android:{name:'Android', description:'APK', architecture:'', status:'coming-soon', downloadUrl:null}
+    windows:{name:'Windows', description:'Windows x64 or Windows ARM64', status:'coming-soon', builds:[{name:'Windows x64', downloadUrl:null},{name:'Windows ARM64', downloadUrl:null}]},
+    macos:{name:'macOS', description:'Apple Silicon (ARM64) or Intel (x64)', status:'coming-soon', builds:[{name:'Apple Silicon (ARM64)', downloadUrl:null},{name:'Intel (x64)', downloadUrl:null}]}
   };
   var platformGrid = document.getElementById('platformGrid');
   var platformLabel = document.getElementById('platformLabel');
@@ -1571,7 +1599,7 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
     var q = function(sel){ return card.querySelector(sel); };
     var nameEl = q('.member-name'), roleEl = q('.member-role'), bioEl = q('.member-bio');
     var imgEl = q('.member-photo img'), initialsEl = q('.ph'), focusEl = q('.member-focus');
-    var ghEl = q('.member-links a[href^="https://github.com"]'), mailEl = q('.member-links a[href^="mailto:"]');
+    var ghEl = q('.member-links a[href^="https://github.com"]'), linkedinEl = q('.member-link--linkedin'), mailEl = q('.member-links a[href^="mailto:"]');
     var name = nameEl ? nameEl.textContent : 'Team Member';
     if(nameEl) byId('teamModalTitle').textContent = name;
     if(roleEl) byId('teamModalRole').textContent = roleEl.textContent;
@@ -1594,9 +1622,10 @@ footer::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-
         focusBox.appendChild(tag);
       });
     }
-    var github = byId('teamModalGithub'), email = byId('teamModalEmail');
-    if(github && ghEl) github.setAttribute('href', ghEl.getAttribute('href'));
-    if(email && mailEl) email.setAttribute('href', mailEl.getAttribute('href'));
+    var github = byId('teamModalGithub'), linkedin = byId('teamModalLinkedin'), email = byId('teamModalEmail');
+    if(github && ghEl){ github.setAttribute('href', ghEl.getAttribute('href')); github.setAttribute('aria-label', 'Open ' + name + "'s GitHub"); github.hidden = false; }
+    if(linkedin){ if(linkedinEl){ linkedin.setAttribute('href', linkedinEl.getAttribute('href')); linkedin.setAttribute('aria-label', 'Open ' + name + "'s LinkedIn"); linkedin.hidden = false; } else { linkedin.hidden = true; linkedin.removeAttribute('href'); } }
+    if(email && mailEl){ email.setAttribute('href', mailEl.getAttribute('href')); email.setAttribute('aria-label', 'Email ' + name); email.hidden = false; }
     openModal('teamModal');
   }
   Array.prototype.forEach.call(document.querySelectorAll('.team-card'), function(card){
